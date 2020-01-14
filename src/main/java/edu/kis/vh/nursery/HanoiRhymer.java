@@ -14,4 +14,6 @@ public class HanoiRhymer extends DefaultCountingOutRhymer {
         else
             super.countIn(in);
     }
+
+    //alt + <- lub alt + -> przechodzenie między otwartymi klasami
 }
