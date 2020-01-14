@@ -97,7 +97,7 @@ public class RhymersJUnitTest {
 
         int[] ans = {0, 1, 5};
 
-        Assert.assertEquals(rhymer.total, ans.length - 1);
+        Assert.assertEquals(rhymer.getTotal(), ans.length - 1);
 
         for (int i = 0; i<ans.length; i++)
             Assert.assertEquals(rhymer.countOut(), ans[i]);

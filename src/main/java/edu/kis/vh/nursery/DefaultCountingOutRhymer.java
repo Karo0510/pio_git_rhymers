@@ -5,12 +5,9 @@ package edu.kis.vh.nursery;
  */
 public class DefaultCountingOutRhymer {
 
-    private int[] NUMBERS = new int[12];
+    public int[] NUMBERS = new int[12];
 
-    /**
-     * indeks ostatniego elementu wpisanego do listy, domyslna wartosc indeksu dla pustej listy wynosi -1
-     */
-    public int total = -1;
+    private int total = -1;
 
     /**
      * dodaje element do obiektu tej klasy
@@ -18,7 +15,7 @@ public class DefaultCountingOutRhymer {
      */
     public void countIn(int in) {
         if (!isFull())
-            NUMBERS[++total] = in;
+            NUMBERS[setTotal(getTotal() + 1)] = in;
     }
 
     /**
@@ -26,7 +23,7 @@ public class DefaultCountingOutRhymer {
      * @return czy nie dodano elementu
      */
     public boolean callCheck() {
-        return total == -1;
+        return getTotal() == -1;
     }
 
     /**
@@ -34,7 +31,7 @@ public class DefaultCountingOutRhymer {
      * @return pojemnosc listy
      */
     public boolean isFull() {
-        return total == 11;
+        return getTotal() == 11;
     }
 
     /**
@@ -44,7 +41,7 @@ public class DefaultCountingOutRhymer {
     protected int peekaboo() {
         if (callCheck())
             return -1;
-        return NUMBERS[total];
+        return NUMBERS[getTotal()];
     }
 
     /**
@@ -54,7 +51,18 @@ public class DefaultCountingOutRhymer {
     public int countOut() {
         if (callCheck())
             return -1;
-        return NUMBERS[total--];
+        return NUMBERS[setTotal(getTotal() - 1)];
     }
 
+    /**
+     * indeks ostatniego elementu wpisanego do listy, domyslna wartosc indeksu dla pustej listy wynosi -1
+     */
+    public int getTotal() {
+        return total;
+    }
+
+    public int setTotal(int total) {
+        this.total = total;
+        return total;
+    }
 }
