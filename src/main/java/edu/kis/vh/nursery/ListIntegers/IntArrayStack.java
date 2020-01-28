@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery.ListIntegers;
 
+import edu.kis.vh.nursery.ListInterface;
+
 public class IntArrayStack implements ListInterface {
 
     public int MAX_AMOUNT_OF_ELEMENTS = 12;

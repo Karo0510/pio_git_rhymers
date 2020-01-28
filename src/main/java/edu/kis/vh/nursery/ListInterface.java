@@ -1,4 +1,4 @@
-package edu.kis.vh.nursery.ListIntegers;
+package edu.kis.vh.nursery;
 
 public interface ListInterface {
     void push(int i);

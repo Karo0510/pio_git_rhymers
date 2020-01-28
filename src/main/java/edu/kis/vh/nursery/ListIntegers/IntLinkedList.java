@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery.ListIntegers;
 
+import edu.kis.vh.nursery.ListInterface;
+
 public class IntLinkedList implements ListInterface {
 
 	private class Node {
@@ -17,7 +19,7 @@ public class IntLinkedList implements ListInterface {
 
 	Node last;
 	int i;
-	public int EMPTY_LIST = -1;
+	public int EMPTY_LIST = 0;
 
 	@Override
 	public void push(int i) {
