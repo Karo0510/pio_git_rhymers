@@ -1,72 +1,41 @@
 package edu.kis.vh.nursery;
 
-/**
- * Tworzy liste liczb calkowitych
- */
+
+import edu.kis.vh.nursery.ListIntegers.IntArrayStack;
+
 public class DefaultCountingOutRhymer {
 
-    public int MAX_AMOUNT_OF_ELEMENTS = 12;
-    final public int[] numbers = new int[MAX_AMOUNT_OF_ELEMENTS];
+    IntArrayStack arr = new IntArrayStack();
 
-    private int EMPTY = -1;
+    public DefaultCountingOutRhymer() {
+        this.arr = new IntArrayStack();
+    }
 
-    /**
-     * dodaje element do obiektu tej klasy
-     * @param in element dodawany
-     */
+    public DefaultCountingOutRhymer(IntArrayStack arr) {
+        this.arr = arr;
+    }
+
+    public int peekaboo() {
+        return arr.top();
+    }
+
     public void countIn(int in) {
-        if (!isFull())
-            numbers[setTotal(getTotal() + 1)] = in;
+        arr.push(in);
     }
 
-    /**
-     * sprawdza, czy lista jest pusta
-     * @return czy nie dodano elementu
-     */
     public boolean callCheck() {
-
-        return getTotal() == EMPTY;
+        return arr.isEmpty();
     }
 
-    /**
-     * Sprawdza, czy lista jest pelna
-     * @return pojemnosc listy
-     */
     public boolean isFull() {
-
-        return getTotal() == MAX_AMOUNT_OF_ELEMENTS - 1;
+        return arr.isFull();
     }
 
-    /**
-     * Oddaje ostatni element w liscie
-     * @return -1 jesli lista jest pusta, w innym przypadku oddaje wartosc elementu ostatniego
-     */
-    protected int peekaboo() {
-        if (callCheck())
-            return EMPTY;
-        return numbers[getTotal()];
-    }
-
-    /**
-     * Zdejmuje element z listy i oddaje wartosc
-     * @return wartosc zdjeta z listy
-     */
     public int countOut() {
-        if (callCheck())
-            return EMPTY;
-        return numbers[setTotal(getTotal() - 1)];
+        return arr.pop();
     }
 
-    /**
-     * indeks ostatniego elementu wpisanego do listy, domyslna wartosc indeksu dla pustej listy wynosi -1
-     */
     public int getTotal() {
-
-        return EMPTY;
-    }
-
-    public int setTotal(int total) {
-        this.EMPTY = total;
-        return this.EMPTY;
+        return arr.getTotal();
     }
 }

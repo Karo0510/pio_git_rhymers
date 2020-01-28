@@ -5,7 +5,6 @@ public class HanoiRhymer extends DefaultCountingOutRhymer {
     int totalRejected = 0;
 
     public int reportRejected() {
-
         return totalRejected;
     }
 
