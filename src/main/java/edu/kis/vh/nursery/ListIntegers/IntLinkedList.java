@@ -6,20 +6,22 @@ public class IntLinkedList implements ListInterface {
 
 	private class Node {
 
-		final private int value;
-		private Node prev;
-		private Node next;
+		final int value;
+		Node prev;
+		Node next;
 
-		public Node(int i) {
+		Node(int i) {
 			 value = i;
 		}
 
+		public int getValue() {
+			return value;
+		}
 	}
 
 
 	Node last;
 	int i;
-	public int EMPTY_LIST = 0;
 
 	@Override
 	public void push(int i) {
@@ -47,14 +49,14 @@ public class IntLinkedList implements ListInterface {
 	@Override
 	public int top() {
 		if (isEmpty())
-			return EMPTY_LIST;
+			return LIST_IS_EMPTY;
 		return last.value;
 	}
 
 	@Override
 	public int pop() {
 		if (isEmpty())
-			return EMPTY_LIST;
+			return LIST_IS_EMPTY;
 		int ret = last.value;
 		last = last.prev;
 		return ret;

@@ -7,46 +7,47 @@ public class IntArrayStack implements ListInterface {
     public int MAX_AMOUNT_OF_ELEMENTS = 12;
     final public int[] numbers = new int[MAX_AMOUNT_OF_ELEMENTS];
 
-    private int EMPTY = -1;
-    private int VALUE_IF_LIST_EMPTY = 0;
+    private static int EMPTY_STACK_INDEX = -1;
+
+    private int total = EMPTY_STACK_INDEX;
 
 
     @Override
     public void push(int in) {
         if (!isFull())
-            numbers[++EMPTY] = in;
+            numbers[++total] = in;
     }
 
 
     @Override
     public boolean isEmpty() {
-        return EMPTY == -1;
+        return total == EMPTY_STACK_INDEX;
     }
 
 
     public boolean isFull() {
-        return EMPTY == MAX_AMOUNT_OF_ELEMENTS - 1;
+        return total == MAX_AMOUNT_OF_ELEMENTS - 1;
     }
 
 
     @Override
     public int top() {
         if (isEmpty())
-            return VALUE_IF_LIST_EMPTY;
-        return numbers[EMPTY];
+            return LIST_IS_EMPTY;
+        return numbers[total];
     }
 
 
     @Override
     public int pop() {
         if (isEmpty())
-            return VALUE_IF_LIST_EMPTY;
-        return numbers[EMPTY--];
+            return LIST_IS_EMPTY;
+        return numbers[total--];
     }
 
 
     public int getTotal() {
-        return EMPTY;
+        return total;
     }
 
 }
